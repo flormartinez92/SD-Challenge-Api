@@ -1,3 +1,0 @@
-# ST-Challenge-Api
-
-# test
