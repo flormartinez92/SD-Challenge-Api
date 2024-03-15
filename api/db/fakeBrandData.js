@@ -21,4 +21,4 @@ let brandData = [
   },
 ];
 
-module.exports = { data: brandData };
+module.exports = brandData;

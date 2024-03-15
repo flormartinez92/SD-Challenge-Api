@@ -1,21 +1,16 @@
 const express = require("express");
 const {
-  createProduct,
-  createBrand,
+  register,
+  login,
+  profile,
+  logout,
 } = require("../controllers/user.controllers");
+const { validateUser } = require("../middleware/auth");
 const router = express.Router();
 
-//* If user is admin
-
-router.post("/brand", createBrand);
-router.post("/product", createProduct);
-
-router.put("/product/:id", (req, res) => {
-  res.send("update product");
-});
-
-router.delete("/product/:id", (req, res) => {
-  res.send("delete product");
-});
+router.post("/register", register);
+router.post("/login", login);
+router.get("/profile", validateUser, profile);
+router.post("/logout", logout);
 
 module.exports = router;

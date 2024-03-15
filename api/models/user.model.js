@@ -1,7 +1,17 @@
 const { DataTypes, Model } = require("sequelize");
 const db = require("../db/index.js");
+const bcrypt = require("bcrypt");
 
-class User extends Model {}
+class User extends Model {
+  createHash(password, salt) {
+    return bcrypt.hash(password, salt);
+  }
+  validatePassword(password) {
+    return bcrypt
+      .hash(password, this.salt)
+      .then((hash) => hash === this.password);
+  }
+}
 
 User.init(
   {
@@ -13,6 +23,9 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    salt: {
+      type: DataTypes.STRING,
+    },
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
@@ -20,5 +33,13 @@ User.init(
   },
   { sequelize: db, modelName: "user" }
 );
+
+User.beforeCreate((user) => {
+  const salt = bcrypt.genSaltSync();
+  user.salt = salt;
+  return user.createHash(user.password, salt).then((hash) => {
+    user.password = hash;
+  });
+});
 
 module.exports = User;
