@@ -1,10 +1,6 @@
 <a name="home"></a>
 
 <div align="center">
-  <a href="#">
-    <img src="./public/logo_wine.svg" alt="Logo" width="500">
-  </a>
-
   <p align="center">
     <h3 align="center">E-Commerce WINE</h3>
     <a href="#"><strong>See the website »</strong></a>
