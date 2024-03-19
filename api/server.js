@@ -21,7 +21,9 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: `${process.env.ECOMMERCE_WINE_CLIENT_HOST}`,
+    origin:
+      `${process.env.ECOMMERCE_WINE_CLIENT_HOST}` ||
+      "https://sd-challenge-client.vercel.app/",
     methods: ["GET", "POST", "DELETE", "OPTIONS", "PUT"],
     credentials: true,
   })
