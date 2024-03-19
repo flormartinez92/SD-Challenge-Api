@@ -12,7 +12,7 @@ const {
   seedProducts,
 } = require("./utils/seeder.js");
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5432;
 const routes = require("./routes");
 
 app.use(morgan("tiny"));

@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Web application E-commerce API",
   "main": "index.js",
+  "engines": {
+    "node": "21.4.0",
+    "npm": "10.2.4"
+  },
   "scripts": {
     "start": "node api/server.js",
     "server": "nodemon api/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Florencia Martinez",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
