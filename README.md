@@ -151,6 +151,8 @@ To get a local copy of this project up and running, follow these steps:
    DB_HOST="some_db_host"
    ACCESS_TOKEN_SECRET="some_access_token_secret"
    ECOMMERCE_WINE_CLIENT_HOST="some_ecommerce_wine_client_host"
+   ADMIN_USER="some_admin_user"
+   ADMIN_USER_PASSWORD="some_admin_password"
    ```
 
 5. Start the backend server:
@@ -177,7 +179,13 @@ To get a local copy of this project up and running, follow these steps:
    npm install
    ```
 
-3. Start the frontend development server:
+3. Configure the environment variables by creating a .env file in the root of the frontend directory. Here's an example .env file with placeholders for the API connection details:
+
+   ```plaintext
+   NEXT_PUBLIC_API_URL=somehost
+   ```
+
+4. Start the frontend development server:
 
    ```sh
    npm run dev

@@ -9,8 +9,8 @@ async function seedAdminUser() {
       await User.create({
         name: "Administrador",
         lastname: "Administrador",
-        username: "admin",
-        password: "adminpassword",
+        username: `${process.env.ADMIN_USER}`,
+        password: `${process.env.ADMIN_USER_PASSWORD}`,
         isAdmin: true,
       });
       console.log("Admin user created");
