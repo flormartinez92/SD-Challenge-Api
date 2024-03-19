@@ -21,8 +21,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin:
-      `${process.env.ECOMMERCE_WINE_CLIENT_HOST}` || "http://localhost:3000",
+    origin: `${process.env.ECOMMERCE_WINE_CLIENT_HOST}`,
     methods: ["GET", "POST", "DELETE", "OPTIONS", "PUT"],
     credentials: true,
   })
