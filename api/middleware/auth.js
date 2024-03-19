@@ -6,7 +6,7 @@ const validateUser = (req, res, next) => {
   try {
     if (!token) return res.status(401).send("Missing authentication token");
 
-    const user = validateToken(token);
+    const { user } = validateToken(token);
     if (!user) return res.status(401).send("Invalid authentication token");
 
     req.user = user;

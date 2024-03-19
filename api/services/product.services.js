@@ -1,13 +1,13 @@
 const { Product, Brand } = require("../models");
 
 async function allProducts() {
-  const products = await Product.findAll();
+  const products = await Product.findAll({ include: Brand });
   if (!products) throw new Error("Products not found");
   return products;
 }
 
 async function productById(id) {
-  const product = await Product.findByPk(id);
+  const product = await Product.findByPk(id, { include: Brand });
   if (!product) throw new Error("Product not found");
   return product;
 }

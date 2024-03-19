@@ -7,6 +7,8 @@ async function seedAdminUser() {
     const existingAdmin = await User.findOne({ where: { isAdmin: true } });
     if (!existingAdmin) {
       await User.create({
+        name: "Administrador",
+        lastname: "Administrador",
         username: "admin",
         password: "adminpassword",
         isAdmin: true,

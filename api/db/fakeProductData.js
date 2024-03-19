@@ -45,7 +45,7 @@ let productData = [
     brandId: "2",
   },
   {
-    name: "Gran Enemigo Chacayes Single Vineyard Cabernet Franc",
+    name: "Gran Enemigo Chacayes SV Cabernet Franc",
     description:
       "Algo salvaje en sus aromas, pero equilibrado, este Gran Enemigo muestra una cara diferente de esta cepa.",
     imageUrl:

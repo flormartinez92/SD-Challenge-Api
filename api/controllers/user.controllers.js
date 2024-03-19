@@ -25,7 +25,7 @@ exports.login = async (req, res) => {
   try {
     const user = await login(username, password);
     res.cookie("token", user.token);
-    res.status(200).send(user.user);
+    res.status(200).send({ user: user.user, token: user.token });
   } catch (error) {
     switch (error.message) {
       case "User not found":
@@ -42,7 +42,7 @@ exports.login = async (req, res) => {
 };
 
 exports.profile = async (req, res) => {
-  res.send(req.user);
+  res.send({ user: req.user, token: req.cookies.token });
 };
 
 exports.logout = async (req, res) => {

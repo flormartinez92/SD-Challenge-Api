@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const db = require("./db/index.js");
 const models = require("./models");
 const {
@@ -17,6 +18,15 @@ const routes = require("./routes");
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(
+  cors({
+    origin:
+      `${process.env.ECOMMERCE_WINE_CLIENT_HOST}` || "http://localhost:3000",
+    methods: ["GET", "POST", "DELETE", "OPTIONS", "PUT"],
+    credentials: true,
+  })
+);
 
 app.use("/api", routes);
 
